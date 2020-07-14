@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<robot name="grip" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find grip_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find grip_description)/urdf/grip.trans" />
+<xacro:include filename="$(find grip_description)/urdf/grip.gazebo" />
+<link name="base_link">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.0 0.0 -0.019999999999999997"/>
+    <mass value="0.16646514073208918"/>
+    <inertia ixx="2.2e-05" ixy="0.0" ixz="0.0" iyy="2.2e-05" iyz="0.0" izz="1.9e-05"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/base_link_grip v0_Body1_base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Steel - Satin">
+      <color rgba="0.6274509803921569 0.6274509803921569 0.6274509803921569 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link2_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="5.153306101393124e-14 0.0 0.011633400273320582"/>
+    <mass value="0.11531521500774385"/>
+    <inertia ixx="1.9e-05" ixy="0.0" ixz="-0.0" iyy="1.9e-05" iyz="0.0" izz="8e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.01"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/link2_1_grip v0_Body1_link2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Steel - Satin">
+      <color rgba="0.6274509803921569 0.6274509803921569 0.6274509803921569 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 -0.01"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/link2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="_jaw_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="-0.010193902011372998 -0.006835419367933063 0.014639292832342728"/>
+    <mass value="0.07786963666757452"/>
+    <inertia ixx="1e-05" ixy="-0.0" ixz="-2e-06" iyy="1e-05" iyz="1e-06" izz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.009 -0.034"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/_jaw_1_grip v0_Body1__jaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Steel - Satin">
+      <color rgba="0.6274509803921569 0.6274509803921569 0.6274509803921569 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.009 -0.034"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/_jaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="_jaw_2">
+  <inertial>
+    <origin rpy="0 0 0" xyz="0.010193902011372998 0.006835419367933061 0.014639292832342728"/>
+    <mass value="0.07786963666757452"/>
+    <inertia ixx="1e-05" ixy="-0.0" ixz="2e-06" iyy="1e-05" iyz="-1e-06" izz="6e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="0.0 0.009 -0.034"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/_jaw_2_grip v0_Body1__jaw_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Steel - Satin">
+      <color rgba="0.6274509803921569 0.6274509803921569 0.6274509803921569 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="0.0 0.009 -0.034"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/_jaw_2.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="link1_1">
+  <inertial>
+    <origin rpy="0 0 0" xyz="1.2506577983999133e-15 -7.445092305768896e-16 0.007532920896874856"/>
+    <mass value="0.047386027681043205"/>
+    <inertia ixx="5e-06" ixy="0.0" ixz="-0.0" iyy="7e-06" iyz="0.0" izz="7e-06"/>
+  </inertial>
+  <visual>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 0.005"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/link1_1_grip v0_Body1_link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="Steel - Satin">
+      <color rgba="0.6274509803921569 0.6274509803921569 0.6274509803921569 1.0"/>
+    </material>
+  </visual>
+  <collision>
+    <origin rpy="0 0 0" xyz="-0.0 -0.0 0.005"/>
+    <geometry>
+      <mesh filename="package://grip_description/meshes/link1_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="j2" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.0 0.015"/>
+  <parent link="link1_1"/>
+  <child link="link2_1"/>
+  <axis xyz="-1.0 0.0 0.0"/>
+</joint>
+
+<joint name="j3" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.009 0.024"/>
+  <parent link="link2_1"/>
+  <child link="_jaw_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="j4" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.0 -0.009 0.024"/>
+  <parent link="link2_1"/>
+  <child link="_jaw_2"/>
+  <axis xyz="0.0 1.0 0.0"/>
+</joint>
+
+<joint name="j1" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.0 -0.005"/>
+  <parent link="base_link"/>
+  <child link="link1_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
+</robot>
