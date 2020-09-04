@@ -119,6 +119,15 @@
   </collision>
 </link>
 
+<link name="distal_wrist_link$(arg n)"/>
+
+<joint name="j1" type="continuous">
+  <origin rpy="0 0 0" xyz="0.0 0.0 -0.005"/>
+  <parent link="base_link"/>
+  <child link="link1_1$(arg n)"/>
+  <axis xyz="0.0 0.0 1.0"/>
+</joint>
+
 <joint name="j2" type="continuous">
   <origin rpy="0 0 0" xyz="0.0 0.0 0.015"/>
   <parent link="link1_1$(arg n)"/>
@@ -127,24 +136,27 @@
 </joint>
 
 <joint name="j3" type="continuous">
-  <origin rpy="0 0 0" xyz="0.0 0.009 0.024"/>
+  <origin rpy="0 0 0" xyz="0.0 0 0.024"/>
   <parent link="link2_1$(arg n)"/>
-  <child link="_jaw_1$(arg n)"/>
+  <child link="distal_wrist_link$(arg n)"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
 <joint name="j4" type="continuous">
-  <origin rpy="0 0 0" xyz="-0.0 -0.009 0.024"/>
-  <parent link="link2_1$(arg n)"/>
-  <child link="_jaw_2$(arg n)"/>
+  <origin rpy="0 0 0" xyz="0.0 0.009 0"/>
+  <parent link="distal_wrist_link$(arg n)"/>
+  <child link="_jaw_1$(arg n)"/>
   <axis xyz="0.0 1.0 0.0"/>
 </joint>
 
-<joint name="j1" type="continuous">
-  <origin rpy="0 0 0" xyz="0.0 0.0 -0.005"/>
-  <parent link="base_link"/>
-  <child link="link1_1$(arg n)"/>
-  <axis xyz="0.0 0.0 1.0"/>
+<joint name="j4b" type="continuous">
+  <origin rpy="0 0 0" xyz="-0.0 -0.009 0"/>
+  <parent link="distal_wrist_link$(arg n)"/>
+  <child link="_jaw_2$(arg n)"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <mimic joint="j4" multiplier="-1.0" offset="0"/>
 </joint>
+
+
 
 </robot>
